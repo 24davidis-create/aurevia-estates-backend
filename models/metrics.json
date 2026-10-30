@@ -1,0 +1,3242 @@
+{
+  "generated_at": "2026-10-27 11:38:38",
+  "dataset_summary": {
+    "total_records": 12000,
+    "target_stats": {
+      "min": 1356119.0,
+      "max": 57552829.0,
+      "mean": 10204060.959833333,
+      "median": 8558739.5,
+      "std": 6707594.783230848
+    },
+    "city_distribution": {
+      "Mumbai": 3056,
+      "Pune": 2674,
+      "Bangalore": 2410,
+      "Hyderabad": 2125,
+      "Nagpur": 1735
+    },
+    "city_avg_prices": {
+      "Bangalore": 9801245.86307054,
+      "Hyderabad": 7653229.194352942,
+      "Mumbai": 16182482.718586387,
+      "Nagpur": 5508933.752737752,
+      "Pune": 8808133.77000748
+    },
+    "locality_distribution": {
+      "Mid": 5973,
+      "Premium": 3024,
+      "Budget": 3003
+    },
+    "furnishing_distribution": {
+      "Unfurnished": 4767,
+      "Semi-Furnished": 4365,
+      "Fully-Furnished": 2868
+    },
+    "bhk_distribution": {
+      "1": 2266,
+      "2": 5354,
+      "3": 3016,
+      "4": 1192,
+      "5": 172
+    },
+    "tier_counts": {
+      "Mid-Range (\u20b960L\u2013\u20b91Cr)": 3762,
+      "Budget (< \u20b960L)": 3422,
+      "Premium (\u20b91Cr\u2013\u20b91.75Cr)": 3371,
+      "Luxury (> \u20b91.75Cr)": 1445
+    }
+  },
+  "models": {
+    "linear_regression": {
+      "name": "Linear Regression (Ridge Regularized)",
+      "short_name": "Linear Regression",
+      "algorithm_type": "Linear / Ridge L2 Regularization",
+      "train_time_sec": 4.49,
+      "latency_ms_per_prediction": 0.002,
+      "best_hyperparameters": {
+        "alpha": 1.0,
+        "fit_intercept": true,
+        "solver": "lsqr"
+      },
+      "tuning_summary": "5-Fold Cross Validation optimizing Ridge alpha regularization penalty & solver.",
+      "metrics": {
+        "r2_score": 0.9152,
+        "adjusted_r2": 0.9146,
+        "mae": 1326796.0,
+        "rmse": 1939616.0,
+        "mape_percent": 20.1,
+        "median_absolute_error": 943933.0,
+        "max_error": 14967203.0,
+        "explained_variance": 0.9152
+      },
+      "confusion_matrix": {
+        "tier_accuracy": 85.42,
+        "labels": [
+          "Budget (< \u20b960L)",
+          "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+          "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+          "Luxury (> \u20b91.75Cr)"
+        ],
+        "matrix": [
+          [
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 646
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 61
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 0
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 0
+            }
+          ],
+          [
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 54
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 543
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 175
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 0
+            }
+          ],
+          [
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 0
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 10
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 600
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 44
+            }
+          ],
+          [
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 0
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 0
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 6
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 261
+            }
+          ]
+        ],
+        "raw_matrix": [
+          [
+            646,
+            61,
+            0,
+            0
+          ],
+          [
+            54,
+            543,
+            175,
+            0
+          ],
+          [
+            0,
+            10,
+            600,
+            44
+          ],
+          [
+            0,
+            0,
+            6,
+            261
+          ]
+        ],
+        "tier_breakdown": {
+          "Budget (< \u20b960L)": {
+            "precision": 0.923,
+            "recall": 0.914,
+            "f1_score": 0.918,
+            "support": 707
+          },
+          "Mid-Range (\u20b960L\u2013\u20b91Cr)": {
+            "precision": 0.884,
+            "recall": 0.703,
+            "f1_score": 0.784,
+            "support": 772
+          },
+          "Premium (\u20b91Cr\u2013\u20b91.75Cr)": {
+            "precision": 0.768,
+            "recall": 0.917,
+            "f1_score": 0.836,
+            "support": 654
+          },
+          "Luxury (> \u20b91.75Cr)": {
+            "precision": 0.856,
+            "recall": 0.978,
+            "f1_score": 0.913,
+            "support": 267
+          }
+        }
+      },
+      "residuals": {
+        "mean": -4893.0,
+        "std": 1939609.69,
+        "histogram": [
+          {
+            "bin_start": -77.8,
+            "bin_end": -62.7,
+            "count": 3
+          },
+          {
+            "bin_start": -62.7,
+            "bin_end": -47.5,
+            "count": 8
+          },
+          {
+            "bin_start": -47.5,
+            "bin_end": -32.3,
+            "count": 39
+          },
+          {
+            "bin_start": -32.3,
+            "bin_end": -17.2,
+            "count": 323
+          },
+          {
+            "bin_start": -17.2,
+            "bin_end": -2.0,
+            "count": 695
+          },
+          {
+            "bin_start": -2.0,
+            "bin_end": 13.2,
+            "count": 957
+          },
+          {
+            "bin_start": 13.2,
+            "bin_end": 28.3,
+            "count": 260
+          },
+          {
+            "bin_start": 28.3,
+            "bin_end": 43.5,
+            "count": 62
+          },
+          {
+            "bin_start": 43.5,
+            "bin_end": 58.7,
+            "count": 24
+          },
+          {
+            "bin_start": 58.7,
+            "bin_end": 73.8,
+            "count": 11
+          },
+          {
+            "bin_start": 73.8,
+            "bin_end": 89.0,
+            "count": 5
+          },
+          {
+            "bin_start": 89.0,
+            "bin_end": 104.2,
+            "count": 4
+          },
+          {
+            "bin_start": 104.2,
+            "bin_end": 119.3,
+            "count": 2
+          },
+          {
+            "bin_start": 119.3,
+            "bin_end": 134.5,
+            "count": 3
+          },
+          {
+            "bin_start": 134.5,
+            "bin_end": 149.7,
+            "count": 4
+          }
+        ],
+        "percentiles": {
+          "p50": 943932.9890623093,
+          "p75": 1790193.9175429756,
+          "p90": 2811983.4588123215,
+          "p95": 3529581.4232368646,
+          "p99": 7146784.199179459
+        }
+      },
+      "city_errors": {
+        "Bangalore": {
+          "count": 484,
+          "mae": 663251.0,
+          "rmse": 846150.0,
+          "r2": 0.974
+        },
+        "Hyderabad": {
+          "count": 437,
+          "mae": 1057595.0,
+          "rmse": 1355639.0,
+          "r2": 0.8781
+        },
+        "Mumbai": {
+          "count": 601,
+          "mae": 2304374.0,
+          "rmse": 3088237.0,
+          "r2": 0.8606
+        },
+        "Nagpur": {
+          "count": 347,
+          "mae": 1704472.0,
+          "rmse": 2166096.0,
+          "r2": 0.3919
+        },
+        "Pune": {
+          "count": 531,
+          "mae": 799900.0,
+          "rmse": 989071.0,
+          "r2": 0.9516
+        }
+      }
+    },
+    "knn": {
+      "name": "K-Nearest Neighbors Regressor",
+      "short_name": "KNN Regressor",
+      "algorithm_type": "Instance-based Non-Parametric",
+      "train_time_sec": 2.51,
+      "latency_ms_per_prediction": 0.051,
+      "best_hyperparameters": {
+        "n_neighbors": 9,
+        "p": 1,
+        "weights": "distance"
+      },
+      "tuning_summary": "4-Fold CV tuning neighbor count (k=5..15), distance weighting, and Manhattan/Euclidean metrics.",
+      "metrics": {
+        "r2_score": 0.8967,
+        "adjusted_r2": 0.8959,
+        "mae": 1429375.0,
+        "rmse": 2141152.0,
+        "mape_percent": 16.68,
+        "median_absolute_error": 946752.0,
+        "max_error": 19780432.0,
+        "explained_variance": 0.8968
+      },
+      "confusion_matrix": {
+        "tier_accuracy": 77.38,
+        "labels": [
+          "Budget (< \u20b960L)",
+          "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+          "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+          "Luxury (> \u20b91.75Cr)"
+        ],
+        "matrix": [
+          [
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 546
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 161
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 0
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 0
+            }
+          ],
+          [
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 50
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 587
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 133
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 2
+            }
+          ],
+          [
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 0
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 92
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 517
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 45
+            }
+          ],
+          [
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 0
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 0
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 60
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 207
+            }
+          ]
+        ],
+        "raw_matrix": [
+          [
+            546,
+            161,
+            0,
+            0
+          ],
+          [
+            50,
+            587,
+            133,
+            2
+          ],
+          [
+            0,
+            92,
+            517,
+            45
+          ],
+          [
+            0,
+            0,
+            60,
+            207
+          ]
+        ],
+        "tier_breakdown": {
+          "Budget (< \u20b960L)": {
+            "precision": 0.916,
+            "recall": 0.772,
+            "f1_score": 0.838,
+            "support": 707
+          },
+          "Mid-Range (\u20b960L\u2013\u20b91Cr)": {
+            "precision": 0.699,
+            "recall": 0.76,
+            "f1_score": 0.728,
+            "support": 772
+          },
+          "Premium (\u20b91Cr\u2013\u20b91.75Cr)": {
+            "precision": 0.728,
+            "recall": 0.791,
+            "f1_score": 0.758,
+            "support": 654
+          },
+          "Luxury (> \u20b91.75Cr)": {
+            "precision": 0.815,
+            "recall": 0.775,
+            "f1_score": 0.795,
+            "support": 267
+          }
+        }
+      },
+      "residuals": {
+        "mean": -79731.08,
+        "std": 2139666.61,
+        "histogram": [
+          {
+            "bin_start": -114.8,
+            "bin_end": -94.0,
+            "count": 5
+          },
+          {
+            "bin_start": -94.0,
+            "bin_end": -73.1,
+            "count": 4
+          },
+          {
+            "bin_start": -73.1,
+            "bin_end": -52.3,
+            "count": 16
+          },
+          {
+            "bin_start": -52.3,
+            "bin_end": -31.5,
+            "count": 64
+          },
+          {
+            "bin_start": -31.5,
+            "bin_end": -10.6,
+            "count": 543
+          },
+          {
+            "bin_start": -10.6,
+            "bin_end": 10.2,
+            "count": 1295
+          },
+          {
+            "bin_start": 10.2,
+            "bin_end": 31.1,
+            "count": 315
+          },
+          {
+            "bin_start": 31.1,
+            "bin_end": 51.9,
+            "count": 100
+          },
+          {
+            "bin_start": 51.9,
+            "bin_end": 72.8,
+            "count": 37
+          },
+          {
+            "bin_start": 72.8,
+            "bin_end": 93.6,
+            "count": 10
+          },
+          {
+            "bin_start": 93.6,
+            "bin_end": 114.4,
+            "count": 8
+          },
+          {
+            "bin_start": 114.4,
+            "bin_end": 135.3,
+            "count": 2
+          },
+          {
+            "bin_start": 135.3,
+            "bin_end": 156.1,
+            "count": 0
+          },
+          {
+            "bin_start": 156.1,
+            "bin_end": 177.0,
+            "count": 0
+          },
+          {
+            "bin_start": 177.0,
+            "bin_end": 197.8,
+            "count": 1
+          }
+        ],
+        "percentiles": {
+          "p50": 946751.9206726376,
+          "p75": 1845528.1098254728,
+          "p90": 3163861.1204889156,
+          "p95": 4287847.953551548,
+          "p99": 8030285.03595164
+        }
+      },
+      "city_errors": {
+        "Bangalore": {
+          "count": 484,
+          "mae": 1192609.0,
+          "rmse": 1598848.0,
+          "r2": 0.907
+        },
+        "Hyderabad": {
+          "count": 437,
+          "mae": 1195234.0,
+          "rmse": 1766146.0,
+          "r2": 0.793
+        },
+        "Mumbai": {
+          "count": 601,
+          "mae": 2261119.0,
+          "rmse": 3168717.0,
+          "r2": 0.8532
+        },
+        "Nagpur": {
+          "count": 347,
+          "mae": 1350138.0,
+          "rmse": 2027142.0,
+          "r2": 0.4674
+        },
+        "Pune": {
+          "count": 531,
+          "mae": 948265.0,
+          "rmse": 1331967.0,
+          "r2": 0.9122
+        }
+      }
+    },
+    "random_forest": {
+      "name": "Random Forest Regressor",
+      "short_name": "Random Forest",
+      "algorithm_type": "Ensemble Bagging of Decision Trees",
+      "train_time_sec": 11.4,
+      "latency_ms_per_prediction": 0.018,
+      "best_hyperparameters": {
+        "n_estimators": 100,
+        "min_samples_split": 4,
+        "min_samples_leaf": 2,
+        "max_features": 1.0,
+        "max_depth": 30
+      },
+      "tuning_summary": "Randomized Search CV optimizing estimators, max depth, leaf samples, and feature subspace sampling.",
+      "metrics": {
+        "r2_score": 0.9853,
+        "adjusted_r2": 0.9852,
+        "mae": 586795.0,
+        "rmse": 806521.0,
+        "mape_percent": 6.49,
+        "median_absolute_error": 429562.0,
+        "max_error": 5165671.0,
+        "explained_variance": 0.9853
+      },
+      "confusion_matrix": {
+        "tier_accuracy": 90.67,
+        "labels": [
+          "Budget (< \u20b960L)",
+          "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+          "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+          "Luxury (> \u20b91.75Cr)"
+        ],
+        "matrix": [
+          [
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 656
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 51
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 0
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 0
+            }
+          ],
+          [
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 37
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 684
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 51
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 0
+            }
+          ],
+          [
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 0
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 46
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 587
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 21
+            }
+          ],
+          [
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 0
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 0
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 18
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 249
+            }
+          ]
+        ],
+        "raw_matrix": [
+          [
+            656,
+            51,
+            0,
+            0
+          ],
+          [
+            37,
+            684,
+            51,
+            0
+          ],
+          [
+            0,
+            46,
+            587,
+            21
+          ],
+          [
+            0,
+            0,
+            18,
+            249
+          ]
+        ],
+        "tier_breakdown": {
+          "Budget (< \u20b960L)": {
+            "precision": 0.947,
+            "recall": 0.928,
+            "f1_score": 0.937,
+            "support": 707
+          },
+          "Mid-Range (\u20b960L\u2013\u20b91Cr)": {
+            "precision": 0.876,
+            "recall": 0.886,
+            "f1_score": 0.881,
+            "support": 772
+          },
+          "Premium (\u20b91Cr\u2013\u20b91.75Cr)": {
+            "precision": 0.895,
+            "recall": 0.898,
+            "f1_score": 0.896,
+            "support": 654
+          },
+          "Luxury (> \u20b91.75Cr)": {
+            "precision": 0.922,
+            "recall": 0.933,
+            "f1_score": 0.927,
+            "support": 267
+          }
+        }
+      },
+      "residuals": {
+        "mean": -18566.38,
+        "std": 806306.88,
+        "histogram": [
+          {
+            "bin_start": -41.5,
+            "bin_end": -35.3,
+            "count": 5
+          },
+          {
+            "bin_start": -35.3,
+            "bin_end": -29.1,
+            "count": 2
+          },
+          {
+            "bin_start": -29.1,
+            "bin_end": -22.9,
+            "count": 16
+          },
+          {
+            "bin_start": -22.9,
+            "bin_end": -16.7,
+            "count": 37
+          },
+          {
+            "bin_start": -16.7,
+            "bin_end": -10.5,
+            "count": 128
+          },
+          {
+            "bin_start": -10.5,
+            "bin_end": -4.2,
+            "count": 437
+          },
+          {
+            "bin_start": -4.2,
+            "bin_end": 2.0,
+            "count": 918
+          },
+          {
+            "bin_start": 2.0,
+            "bin_end": 8.2,
+            "count": 571
+          },
+          {
+            "bin_start": 8.2,
+            "bin_end": 14.4,
+            "count": 199
+          },
+          {
+            "bin_start": 14.4,
+            "bin_end": 20.6,
+            "count": 60
+          },
+          {
+            "bin_start": 20.6,
+            "bin_end": 26.8,
+            "count": 13
+          },
+          {
+            "bin_start": 26.8,
+            "bin_end": 33.0,
+            "count": 11
+          },
+          {
+            "bin_start": 33.0,
+            "bin_end": 39.2,
+            "count": 1
+          },
+          {
+            "bin_start": 39.2,
+            "bin_end": 45.4,
+            "count": 1
+          },
+          {
+            "bin_start": 45.4,
+            "bin_end": 51.7,
+            "count": 1
+          }
+        ],
+        "percentiles": {
+          "p50": 429561.85175793525,
+          "p75": 808117.4561309528,
+          "p90": 1260193.163361904,
+          "p95": 1637665.8612696382,
+          "p99": 2639412.0089360173
+        }
+      },
+      "city_errors": {
+        "Bangalore": {
+          "count": 484,
+          "mae": 553353.0,
+          "rmse": 786400.0,
+          "r2": 0.9775
+        },
+        "Hyderabad": {
+          "count": 437,
+          "mae": 480687.0,
+          "rmse": 654921.0,
+          "r2": 0.9715
+        },
+        "Mumbai": {
+          "count": 601,
+          "mae": 856352.0,
+          "rmse": 1102625.0,
+          "r2": 0.9822
+        },
+        "Nagpur": {
+          "count": 347,
+          "mae": 364446.0,
+          "rmse": 476576.0,
+          "r2": 0.9706
+        },
+        "Pune": {
+          "count": 531,
+          "mae": 544810.0,
+          "rmse": 706291.0,
+          "r2": 0.9753
+        }
+      }
+    },
+    "decision_tree": {
+      "name": "Decision Tree Regressor",
+      "short_name": "Decision Tree",
+      "algorithm_type": "Single CART Regression Tree",
+      "train_time_sec": 50.88,
+      "latency_ms_per_prediction": 0.0021,
+      "best_hyperparameters": {
+        "criterion": "squared_error",
+        "max_depth": 12,
+        "min_samples_leaf": 8,
+        "min_samples_split": 2
+      },
+      "tuning_summary": "4-Fold CV optimizing tree depth, minimum split samples, leaf constraints, and split criteria.",
+      "metrics": {
+        "r2_score": 0.9807,
+        "adjusted_r2": 0.9806,
+        "mae": 670896.3,
+        "rmse": 925038.4,
+        "mape_percent": 7.7,
+        "median_absolute_error": 518581.6,
+        "max_error": 7248941.3,
+        "explained_variance": 0.9807
+      },
+      "confusion_matrix": {
+        "tier_accuracy": 89.92,
+        "labels": [
+          "Budget (< \u20b960L)",
+          "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+          "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+          "Luxury (> \u20b91.75Cr)"
+        ],
+        "raw_matrix": [
+          [
+            661,
+            46,
+            0,
+            0
+          ],
+          [
+            48,
+            674,
+            50,
+            0
+          ],
+          [
+            0,
+            52,
+            574,
+            28
+          ],
+          [
+            0,
+            0,
+            18,
+            249
+          ]
+        ],
+        "matrix": [
+          [
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 661
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 46
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 0
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 0
+            }
+          ],
+          [
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 48
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 674
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 50
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 0
+            }
+          ],
+          [
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 0
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 52
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 574
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 28
+            }
+          ],
+          [
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 0
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 0
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 18
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 249
+            }
+          ]
+        ],
+        "tier_breakdown": {
+          "Budget (< \u20b960L)": {
+            "precision": 0.9323,
+            "recall": 0.9349,
+            "f1_score": 0.9336,
+            "support": 707
+          },
+          "Mid-Range (\u20b960L\u2013\u20b91Cr)": {
+            "precision": 0.8731,
+            "recall": 0.8731,
+            "f1_score": 0.8731,
+            "support": 772
+          },
+          "Premium (\u20b91Cr\u2013\u20b91.75Cr)": {
+            "precision": 0.8941,
+            "recall": 0.8777,
+            "f1_score": 0.8858,
+            "support": 654
+          },
+          "Luxury (> \u20b91.75Cr)": {
+            "precision": 0.8989,
+            "recall": 0.9326,
+            "f1_score": 0.9154,
+            "support": 267
+          }
+        }
+      },
+      "residuals": {
+        "histogram": [
+          {
+            "bin_start": -59.5,
+            "bin_end": -55.1,
+            "count": 1
+          },
+          {
+            "bin_start": -55.1,
+            "bin_end": -50.7,
+            "count": 1
+          },
+          {
+            "bin_start": -50.7,
+            "bin_end": -46.3,
+            "count": 1
+          },
+          {
+            "bin_start": -46.3,
+            "bin_end": -41.9,
+            "count": 1
+          },
+          {
+            "bin_start": -41.9,
+            "bin_end": -37.5,
+            "count": 2
+          },
+          {
+            "bin_start": -37.5,
+            "bin_end": -33.1,
+            "count": 2
+          },
+          {
+            "bin_start": -33.1,
+            "bin_end": -28.7,
+            "count": 5
+          },
+          {
+            "bin_start": -28.7,
+            "bin_end": -24.3,
+            "count": 12
+          },
+          {
+            "bin_start": -24.3,
+            "bin_end": -19.9,
+            "count": 32
+          },
+          {
+            "bin_start": -19.9,
+            "bin_end": -15.5,
+            "count": 45
+          },
+          {
+            "bin_start": -15.5,
+            "bin_end": -11.1,
+            "count": 109
+          },
+          {
+            "bin_start": -11.1,
+            "bin_end": -6.7,
+            "count": 268
+          },
+          {
+            "bin_start": -6.7,
+            "bin_end": -2.3,
+            "count": 446
+          },
+          {
+            "bin_start": -2.3,
+            "bin_end": 2.1,
+            "count": 609
+          },
+          {
+            "bin_start": 2.1,
+            "bin_end": 6.5,
+            "count": 390
+          },
+          {
+            "bin_start": 6.5,
+            "bin_end": 10.9,
+            "count": 251
+          },
+          {
+            "bin_start": 10.9,
+            "bin_end": 15.3,
+            "count": 125
+          },
+          {
+            "bin_start": 15.3,
+            "bin_end": 19.7,
+            "count": 54
+          },
+          {
+            "bin_start": 19.7,
+            "bin_end": 24.1,
+            "count": 21
+          },
+          {
+            "bin_start": 24.1,
+            "bin_end": 28.5,
+            "count": 11
+          },
+          {
+            "bin_start": 28.5,
+            "bin_end": 32.9,
+            "count": 10
+          },
+          {
+            "bin_start": 32.9,
+            "bin_end": 37.3,
+            "count": 2
+          },
+          {
+            "bin_start": 37.3,
+            "bin_end": 41.7,
+            "count": 1
+          },
+          {
+            "bin_start": 41.7,
+            "bin_end": 46.1,
+            "count": 0
+          },
+          {
+            "bin_start": 46.1,
+            "bin_end": 50.5,
+            "count": 0
+          },
+          {
+            "bin_start": 50.5,
+            "bin_end": 54.9,
+            "count": 0
+          },
+          {
+            "bin_start": 54.9,
+            "bin_end": 59.3,
+            "count": 0
+          },
+          {
+            "bin_start": 59.3,
+            "bin_end": 63.7,
+            "count": 0
+          },
+          {
+            "bin_start": 63.7,
+            "bin_end": 68.1,
+            "count": 0
+          },
+          {
+            "bin_start": 68.1,
+            "bin_end": 72.5,
+            "count": 1
+          }
+        ],
+        "percentiles": {
+          "p50": 518581.56,
+          "p75": 915358.33,
+          "p90": 1428258.32,
+          "p95": 1849987.57
+        }
+      },
+      "city_errors": {
+        "Bangalore": {
+          "count": 484,
+          "mae": 649294.8,
+          "rmse": 892400.9,
+          "r2": 0.971
+        },
+        "Hyderabad": {
+          "count": 437,
+          "mae": 528311.5,
+          "rmse": 702692.9,
+          "r2": 0.9672
+        },
+        "Mumbai": {
+          "count": 601,
+          "mae": 962465.6,
+          "rmse": 1281606.6,
+          "r2": 0.976
+        },
+        "Nagpur": {
+          "count": 347,
+          "mae": 433215.2,
+          "rmse": 577863.9,
+          "r2": 0.9567
+        },
+        "Pune": {
+          "count": 531,
+          "mae": 633244.7,
+          "rmse": 811194.7,
+          "r2": 0.9674
+        }
+      }
+    }
+  },
+  "feature_importances": {
+    "random_forest": [
+      {
+        "feature": "Super_Area_sqft",
+        "importance": 0.5335,
+        "percentage": 53.35
+      },
+      {
+        "feature": "City",
+        "importance": 0.3573,
+        "percentage": 35.73
+      },
+      {
+        "feature": "Locality_Tier",
+        "importance": 0.0905,
+        "percentage": 9.05
+      },
+      {
+        "feature": "BHK",
+        "importance": 0.0047,
+        "percentage": 0.47
+      },
+      {
+        "feature": "Distance_to_CityCenter_km",
+        "importance": 0.0031,
+        "percentage": 0.31
+      },
+      {
+        "feature": "Carpet_Area_sqft",
+        "importance": 0.0023,
+        "percentage": 0.23
+      },
+      {
+        "feature": "Crime_Rate_Index",
+        "importance": 0.0015,
+        "percentage": 0.15
+      },
+      {
+        "feature": "Nearby_Hospital_km",
+        "importance": 0.0011,
+        "percentage": 0.11
+      },
+      {
+        "feature": "Property_Age_years",
+        "importance": 0.001,
+        "percentage": 0.1
+      },
+      {
+        "feature": "Total_Floors",
+        "importance": 0.001,
+        "percentage": 0.1
+      },
+      {
+        "feature": "Nearby_School_km",
+        "importance": 0.0009,
+        "percentage": 0.09
+      },
+      {
+        "feature": "Floor_No",
+        "importance": 0.0009,
+        "percentage": 0.09
+      }
+    ],
+    "linear_regression": [
+      {
+        "feature": "City",
+        "importance": 13759184.05,
+        "percentage": 54.5
+      },
+      {
+        "feature": "Locality_Tier",
+        "importance": 5335409.99,
+        "percentage": 21.14
+      },
+      {
+        "feature": "Super_Area_sqft",
+        "importance": 4140016.91,
+        "percentage": 16.4
+      },
+      {
+        "feature": "Furnishing",
+        "importance": 424141.9,
+        "percentage": 1.68
+      },
+      {
+        "feature": "Distance_to_CityCenter_km",
+        "importance": 367874.62,
+        "percentage": 1.46
+      },
+      {
+        "feature": "Crime_Rate_Index",
+        "importance": 232366.2,
+        "percentage": 0.92
+      },
+      {
+        "feature": "Bathrooms",
+        "importance": 190662.56,
+        "percentage": 0.76
+      },
+      {
+        "feature": "Carpet_Area_sqft",
+        "importance": 173745.05,
+        "percentage": 0.69
+      },
+      {
+        "feature": "BHK",
+        "importance": 111844.49,
+        "percentage": 0.44
+      },
+      {
+        "feature": "Property_Age_years",
+        "importance": 107469.68,
+        "percentage": 0.43
+      },
+      {
+        "feature": "Parking",
+        "importance": 100150.43,
+        "percentage": 0.4
+      },
+      {
+        "feature": "Gated_Society",
+        "importance": 80002.52,
+        "percentage": 0.32
+      }
+    ],
+    "knn": [
+      {
+        "feature": "City",
+        "importance": 0.3865,
+        "percentage": 67.52
+      },
+      {
+        "feature": "Super_Area_sqft",
+        "importance": 0.0463,
+        "percentage": 8.09
+      },
+      {
+        "feature": "Locality_Tier",
+        "importance": 0.0355,
+        "percentage": 6.2
+      },
+      {
+        "feature": "Carpet_Area_sqft",
+        "importance": 0.0337,
+        "percentage": 5.89
+      },
+      {
+        "feature": "BHK",
+        "importance": 0.0333,
+        "percentage": 5.81
+      },
+      {
+        "feature": "Total_Floors",
+        "importance": 0.011,
+        "percentage": 1.93
+      },
+      {
+        "feature": "Crime_Rate_Index",
+        "importance": 0.0099,
+        "percentage": 1.74
+      },
+      {
+        "feature": "Distance_to_Metro_km",
+        "importance": 0.009,
+        "percentage": 1.57
+      },
+      {
+        "feature": "Lift",
+        "importance": 0.0032,
+        "percentage": 0.57
+      },
+      {
+        "feature": "Distance_to_CityCenter_km",
+        "importance": 0.0022,
+        "percentage": 0.39
+      },
+      {
+        "feature": "Nearby_Hospital_km",
+        "importance": 0.0009,
+        "percentage": 0.17
+      },
+      {
+        "feature": "Parking",
+        "importance": 0.0008,
+        "percentage": 0.15
+      }
+    ],
+    "decision_tree": [
+      {
+        "feature": "Super_Area_sqft",
+        "importance": 0.5291,
+        "percentage": 52.91
+      },
+      {
+        "feature": "City",
+        "importance": 0.3626,
+        "percentage": 36.26
+      },
+      {
+        "feature": "Locality_Tier",
+        "importance": 0.0913,
+        "percentage": 9.13
+      },
+      {
+        "feature": "BHK",
+        "importance": 0.0116,
+        "percentage": 1.16
+      },
+      {
+        "feature": "Distance_to_CityCenter_km",
+        "importance": 0.0021,
+        "percentage": 0.21
+      },
+      {
+        "feature": "Crime_Rate_Index",
+        "importance": 0.0008,
+        "percentage": 0.08
+      },
+      {
+        "feature": "Floor_No",
+        "importance": 0.0004,
+        "percentage": 0.04
+      },
+      {
+        "feature": "Property_Age_years",
+        "importance": 0.0003,
+        "percentage": 0.03
+      },
+      {
+        "feature": "Carpet_Area_sqft",
+        "importance": 0.0003,
+        "percentage": 0.03
+      },
+      {
+        "feature": "Nearby_Hospital_km",
+        "importance": 0.0003,
+        "percentage": 0.03
+      },
+      {
+        "feature": "Nearby_School_km",
+        "importance": 0.0002,
+        "percentage": 0.02
+      },
+      {
+        "feature": "Distance_to_Metro_km",
+        "importance": 0.0002,
+        "percentage": 0.02
+      }
+    ]
+  },
+  "scatter_samples": [
+    {
+      "id": 1,
+      "sample_id": 1,
+      "actual_price": 1411437.0,
+      "actual_price_lakhs": 14.11,
+      "random_forest": 1716003.35,
+      "random_forest_lakhs": 17.16,
+      "decision_tree": 1569379.71,
+      "decision_tree_lakhs": 15.69,
+      "linear_regression": 500000.0,
+      "linear_regression_lakhs": 5.0,
+      "knn": 2576765.54,
+      "knn_lakhs": 25.77
+    },
+    {
+      "id": 2,
+      "sample_id": 2,
+      "actual_price": 1617150.0,
+      "actual_price_lakhs": 16.17,
+      "random_forest": 1953245.4,
+      "random_forest_lakhs": 19.53,
+      "decision_tree": 2303582.73,
+      "decision_tree_lakhs": 23.04,
+      "linear_regression": 500000.0,
+      "linear_regression_lakhs": 5.0,
+      "knn": 2029215.95,
+      "knn_lakhs": 20.29
+    },
+    {
+      "id": 3,
+      "sample_id": 3,
+      "actual_price": 1809507.0,
+      "actual_price_lakhs": 18.1,
+      "random_forest": 2154265.39,
+      "random_forest_lakhs": 21.54,
+      "decision_tree": 2186313.77,
+      "decision_tree_lakhs": 21.86,
+      "linear_regression": 500000.0,
+      "linear_regression_lakhs": 5.0,
+      "knn": 2560479.7,
+      "knn_lakhs": 25.6
+    },
+    {
+      "id": 4,
+      "sample_id": 4,
+      "actual_price": 2042905.0,
+      "actual_price_lakhs": 20.43,
+      "random_forest": 1900471.21,
+      "random_forest_lakhs": 19.0,
+      "decision_tree": 2551429.54,
+      "decision_tree_lakhs": 25.51,
+      "linear_regression": 1072605.14,
+      "linear_regression_lakhs": 10.73,
+      "knn": 3971669.15,
+      "knn_lakhs": 39.72
+    },
+    {
+      "id": 5,
+      "sample_id": 5,
+      "actual_price": 2276961.0,
+      "actual_price_lakhs": 22.77,
+      "random_forest": 2355704.9,
+      "random_forest_lakhs": 23.56,
+      "decision_tree": 2303582.73,
+      "decision_tree_lakhs": 23.04,
+      "linear_regression": 629686.75,
+      "linear_regression_lakhs": 6.3,
+      "knn": 3249095.39,
+      "knn_lakhs": 32.49
+    },
+    {
+      "id": 6,
+      "sample_id": 6,
+      "actual_price": 2481990.0,
+      "actual_price_lakhs": 24.82,
+      "random_forest": 2881076.18,
+      "random_forest_lakhs": 28.81,
+      "decision_tree": 2516140.27,
+      "decision_tree_lakhs": 25.16,
+      "linear_regression": 1075860.65,
+      "linear_regression_lakhs": 10.76,
+      "knn": 2461058.27,
+      "knn_lakhs": 24.61
+    },
+    {
+      "id": 7,
+      "sample_id": 7,
+      "actual_price": 2565929.0,
+      "actual_price_lakhs": 25.66,
+      "random_forest": 2421552.28,
+      "random_forest_lakhs": 24.22,
+      "decision_tree": 2581408.1,
+      "decision_tree_lakhs": 25.81,
+      "linear_regression": 1112900.72,
+      "linear_regression_lakhs": 11.13,
+      "knn": 3621474.25,
+      "knn_lakhs": 36.21
+    },
+    {
+      "id": 8,
+      "sample_id": 8,
+      "actual_price": 2811836.0,
+      "actual_price_lakhs": 28.12,
+      "random_forest": 2361586.89,
+      "random_forest_lakhs": 23.62,
+      "decision_tree": 2391423.22,
+      "decision_tree_lakhs": 23.91,
+      "linear_regression": 1231083.56,
+      "linear_regression_lakhs": 12.31,
+      "knn": 3391419.44,
+      "knn_lakhs": 33.91
+    },
+    {
+      "id": 9,
+      "sample_id": 9,
+      "actual_price": 2932551.0,
+      "actual_price_lakhs": 29.33,
+      "random_forest": 2962515.86,
+      "random_forest_lakhs": 29.63,
+      "decision_tree": 2598090.5,
+      "decision_tree_lakhs": 25.98,
+      "linear_regression": 872305.3,
+      "linear_regression_lakhs": 8.72,
+      "knn": 2325214.47,
+      "knn_lakhs": 23.25
+    },
+    {
+      "id": 10,
+      "sample_id": 10,
+      "actual_price": 3030543.0,
+      "actual_price_lakhs": 30.31,
+      "random_forest": 3279851.49,
+      "random_forest_lakhs": 32.8,
+      "decision_tree": 3344017.08,
+      "decision_tree_lakhs": 33.44,
+      "linear_regression": 2334679.87,
+      "linear_regression_lakhs": 23.35,
+      "knn": 4400965.6,
+      "knn_lakhs": 44.01
+    },
+    {
+      "id": 11,
+      "sample_id": 11,
+      "actual_price": 3148538.0,
+      "actual_price_lakhs": 31.49,
+      "random_forest": 3344612.96,
+      "random_forest_lakhs": 33.45,
+      "decision_tree": 3257365.48,
+      "decision_tree_lakhs": 32.57,
+      "linear_regression": 2355809.36,
+      "linear_regression_lakhs": 23.56,
+      "knn": 3929194.51,
+      "knn_lakhs": 39.29
+    },
+    {
+      "id": 12,
+      "sample_id": 12,
+      "actual_price": 3307599.0,
+      "actual_price_lakhs": 33.08,
+      "random_forest": 4121341.49,
+      "random_forest_lakhs": 41.21,
+      "decision_tree": 4122172.92,
+      "decision_tree_lakhs": 41.22,
+      "linear_regression": 2948985.96,
+      "linear_regression_lakhs": 29.49,
+      "knn": 3287640.66,
+      "knn_lakhs": 32.88
+    },
+    {
+      "id": 13,
+      "sample_id": 13,
+      "actual_price": 3424029.0,
+      "actual_price_lakhs": 34.24,
+      "random_forest": 3460579.68,
+      "random_forest_lakhs": 34.61,
+      "decision_tree": 3715857.0,
+      "decision_tree_lakhs": 37.16,
+      "linear_regression": 2490937.18,
+      "linear_regression_lakhs": 24.91,
+      "knn": 4904373.03,
+      "knn_lakhs": 49.04
+    },
+    {
+      "id": 14,
+      "sample_id": 14,
+      "actual_price": 3605564.0,
+      "actual_price_lakhs": 36.06,
+      "random_forest": 4205423.3,
+      "random_forest_lakhs": 42.05,
+      "decision_tree": 4216644.64,
+      "decision_tree_lakhs": 42.17,
+      "linear_regression": 2454014.12,
+      "linear_regression_lakhs": 24.54,
+      "knn": 4425065.16,
+      "knn_lakhs": 44.25
+    },
+    {
+      "id": 15,
+      "sample_id": 15,
+      "actual_price": 3703876.0,
+      "actual_price_lakhs": 37.04,
+      "random_forest": 4092312.61,
+      "random_forest_lakhs": 40.92,
+      "decision_tree": 4278771.4,
+      "decision_tree_lakhs": 42.79,
+      "linear_regression": 2560396.22,
+      "linear_regression_lakhs": 25.6,
+      "knn": 3989668.75,
+      "knn_lakhs": 39.9
+    },
+    {
+      "id": 16,
+      "sample_id": 16,
+      "actual_price": 3893125.0,
+      "actual_price_lakhs": 38.93,
+      "random_forest": 4543206.45,
+      "random_forest_lakhs": 45.43,
+      "decision_tree": 3815493.36,
+      "decision_tree_lakhs": 38.15,
+      "linear_regression": 3128069.85,
+      "linear_regression_lakhs": 31.28,
+      "knn": 4921333.02,
+      "knn_lakhs": 49.21
+    },
+    {
+      "id": 17,
+      "sample_id": 17,
+      "actual_price": 4003592.0,
+      "actual_price_lakhs": 40.04,
+      "random_forest": 3870181.93,
+      "random_forest_lakhs": 38.7,
+      "decision_tree": 4216644.64,
+      "decision_tree_lakhs": 42.17,
+      "linear_regression": 2566350.12,
+      "linear_regression_lakhs": 25.66,
+      "knn": 4849080.32,
+      "knn_lakhs": 48.49
+    },
+    {
+      "id": 18,
+      "sample_id": 18,
+      "actual_price": 4158048.0,
+      "actual_price_lakhs": 41.58,
+      "random_forest": 3865462.75,
+      "random_forest_lakhs": 38.65,
+      "decision_tree": 3737829.3,
+      "decision_tree_lakhs": 37.38,
+      "linear_regression": 2498634.91,
+      "linear_regression_lakhs": 24.99,
+      "knn": 4696323.86,
+      "knn_lakhs": 46.96
+    },
+    {
+      "id": 19,
+      "sample_id": 19,
+      "actual_price": 4275295.0,
+      "actual_price_lakhs": 42.75,
+      "random_forest": 3775568.8,
+      "random_forest_lakhs": 37.76,
+      "decision_tree": 4122172.92,
+      "decision_tree_lakhs": 41.22,
+      "linear_regression": 2715001.93,
+      "linear_regression_lakhs": 27.15,
+      "knn": 4902223.6,
+      "knn_lakhs": 49.02
+    },
+    {
+      "id": 20,
+      "sample_id": 20,
+      "actual_price": 4408190.0,
+      "actual_price_lakhs": 44.08,
+      "random_forest": 3896181.11,
+      "random_forest_lakhs": 38.96,
+      "decision_tree": 4122172.92,
+      "decision_tree_lakhs": 41.22,
+      "linear_regression": 3062255.15,
+      "linear_regression_lakhs": 30.62,
+      "knn": 4469103.51,
+      "knn_lakhs": 44.69
+    },
+    {
+      "id": 21,
+      "sample_id": 21,
+      "actual_price": 4494542.0,
+      "actual_price_lakhs": 44.95,
+      "random_forest": 4723037.84,
+      "random_forest_lakhs": 47.23,
+      "decision_tree": 4680194.78,
+      "decision_tree_lakhs": 46.8,
+      "linear_regression": 3073285.18,
+      "linear_regression_lakhs": 30.73,
+      "knn": 3818094.02,
+      "knn_lakhs": 38.18
+    },
+    {
+      "id": 22,
+      "sample_id": 22,
+      "actual_price": 4593282.0,
+      "actual_price_lakhs": 45.93,
+      "random_forest": 4268694.27,
+      "random_forest_lakhs": 42.69,
+      "decision_tree": 4195111.5,
+      "decision_tree_lakhs": 41.95,
+      "linear_regression": 3088850.51,
+      "linear_regression_lakhs": 30.89,
+      "knn": 4448431.68,
+      "knn_lakhs": 44.48
+    },
+    {
+      "id": 23,
+      "sample_id": 23,
+      "actual_price": 4693431.0,
+      "actual_price_lakhs": 46.93,
+      "random_forest": 4446470.46,
+      "random_forest_lakhs": 44.46,
+      "decision_tree": 4667489.77,
+      "decision_tree_lakhs": 46.67,
+      "linear_regression": 5039707.36,
+      "linear_regression_lakhs": 50.4,
+      "knn": 5409308.26,
+      "knn_lakhs": 54.09
+    },
+    {
+      "id": 24,
+      "sample_id": 24,
+      "actual_price": 4825354.0,
+      "actual_price_lakhs": 48.25,
+      "random_forest": 5607924.0,
+      "random_forest_lakhs": 56.08,
+      "decision_tree": 5766833.77,
+      "decision_tree_lakhs": 57.67,
+      "linear_regression": 5340222.52,
+      "linear_regression_lakhs": 53.4,
+      "knn": 5384120.65,
+      "knn_lakhs": 53.84
+    },
+    {
+      "id": 25,
+      "sample_id": 25,
+      "actual_price": 4915434.0,
+      "actual_price_lakhs": 49.15,
+      "random_forest": 4449290.77,
+      "random_forest_lakhs": 44.49,
+      "decision_tree": 4216644.64,
+      "decision_tree_lakhs": 42.17,
+      "linear_regression": 3624402.7,
+      "linear_regression_lakhs": 36.24,
+      "knn": 4687498.72,
+      "knn_lakhs": 46.87
+    },
+    {
+      "id": 26,
+      "sample_id": 26,
+      "actual_price": 5047352.0,
+      "actual_price_lakhs": 50.47,
+      "random_forest": 4718763.82,
+      "random_forest_lakhs": 47.19,
+      "decision_tree": 4582384.88,
+      "decision_tree_lakhs": 45.82,
+      "linear_regression": 4507122.89,
+      "linear_regression_lakhs": 45.07,
+      "knn": 5471862.45,
+      "knn_lakhs": 54.72
+    },
+    {
+      "id": 27,
+      "sample_id": 27,
+      "actual_price": 5147002.0,
+      "actual_price_lakhs": 51.47,
+      "random_forest": 5496379.42,
+      "random_forest_lakhs": 54.96,
+      "decision_tree": 5766833.77,
+      "decision_tree_lakhs": 57.67,
+      "linear_regression": 5103545.8,
+      "linear_regression_lakhs": 51.04,
+      "knn": 4874181.16,
+      "knn_lakhs": 48.74
+    },
+    {
+      "id": 28,
+      "sample_id": 28,
+      "actual_price": 5226438.0,
+      "actual_price_lakhs": 52.26,
+      "random_forest": 5572645.48,
+      "random_forest_lakhs": 55.73,
+      "decision_tree": 5307879.7,
+      "decision_tree_lakhs": 53.08,
+      "linear_regression": 5802183.15,
+      "linear_regression_lakhs": 58.02,
+      "knn": 5685032.34,
+      "knn_lakhs": 56.85
+    },
+    {
+      "id": 29,
+      "sample_id": 29,
+      "actual_price": 5324349.0,
+      "actual_price_lakhs": 53.24,
+      "random_forest": 4952326.64,
+      "random_forest_lakhs": 49.52,
+      "decision_tree": 4548908.17,
+      "decision_tree_lakhs": 45.49,
+      "linear_regression": 4415554.25,
+      "linear_regression_lakhs": 44.16,
+      "knn": 7536215.8,
+      "knn_lakhs": 75.36
+    },
+    {
+      "id": 30,
+      "sample_id": 30,
+      "actual_price": 5409968.0,
+      "actual_price_lakhs": 54.1,
+      "random_forest": 5141789.61,
+      "random_forest_lakhs": 51.42,
+      "decision_tree": 4906186.48,
+      "decision_tree_lakhs": 49.06,
+      "linear_regression": 4837290.21,
+      "linear_regression_lakhs": 48.37,
+      "knn": 5594136.17,
+      "knn_lakhs": 55.94
+    },
+    {
+      "id": 31,
+      "sample_id": 31,
+      "actual_price": 5556354.0,
+      "actual_price_lakhs": 55.56,
+      "random_forest": 6031498.64,
+      "random_forest_lakhs": 60.31,
+      "decision_tree": 6486472.19,
+      "decision_tree_lakhs": 64.86,
+      "linear_regression": 5957824.91,
+      "linear_regression_lakhs": 59.58,
+      "knn": 5957320.26,
+      "knn_lakhs": 59.57
+    },
+    {
+      "id": 32,
+      "sample_id": 32,
+      "actual_price": 5625732.0,
+      "actual_price_lakhs": 56.26,
+      "random_forest": 5949800.22,
+      "random_forest_lakhs": 59.5,
+      "decision_tree": 6087889.5,
+      "decision_tree_lakhs": 60.88,
+      "linear_regression": 5469401.9,
+      "linear_regression_lakhs": 54.69,
+      "knn": 5252924.21,
+      "knn_lakhs": 52.53
+    },
+    {
+      "id": 33,
+      "sample_id": 33,
+      "actual_price": 5723735.0,
+      "actual_price_lakhs": 57.24,
+      "random_forest": 6156692.93,
+      "random_forest_lakhs": 61.57,
+      "decision_tree": 5936705.5,
+      "decision_tree_lakhs": 59.37,
+      "linear_regression": 5544404.98,
+      "linear_regression_lakhs": 55.44,
+      "knn": 5914724.61,
+      "knn_lakhs": 59.15
+    },
+    {
+      "id": 34,
+      "sample_id": 34,
+      "actual_price": 5776686.0,
+      "actual_price_lakhs": 57.77,
+      "random_forest": 6125759.46,
+      "random_forest_lakhs": 61.26,
+      "decision_tree": 6253415.0,
+      "decision_tree_lakhs": 62.53,
+      "linear_regression": 5928483.61,
+      "linear_regression_lakhs": 59.28,
+      "knn": 6308343.73,
+      "knn_lakhs": 63.08
+    },
+    {
+      "id": 35,
+      "sample_id": 35,
+      "actual_price": 5870628.0,
+      "actual_price_lakhs": 58.71,
+      "random_forest": 6046338.3,
+      "random_forest_lakhs": 60.46,
+      "decision_tree": 5623327.58,
+      "decision_tree_lakhs": 56.23,
+      "linear_regression": 6797366.7,
+      "linear_regression_lakhs": 67.97,
+      "knn": 6049359.89,
+      "knn_lakhs": 60.49
+    },
+    {
+      "id": 36,
+      "sample_id": 36,
+      "actual_price": 5985668.0,
+      "actual_price_lakhs": 59.86,
+      "random_forest": 5998769.85,
+      "random_forest_lakhs": 59.99,
+      "decision_tree": 5766833.77,
+      "decision_tree_lakhs": 57.67,
+      "linear_regression": 5881222.65,
+      "linear_regression_lakhs": 58.81,
+      "knn": 6804721.08,
+      "knn_lakhs": 68.05
+    },
+    {
+      "id": 37,
+      "sample_id": 37,
+      "actual_price": 6076623.0,
+      "actual_price_lakhs": 60.77,
+      "random_forest": 6097810.49,
+      "random_forest_lakhs": 60.98,
+      "decision_tree": 6218052.45,
+      "decision_tree_lakhs": 62.18,
+      "linear_regression": 6680677.66,
+      "linear_regression_lakhs": 66.81,
+      "knn": 7718938.71,
+      "knn_lakhs": 77.19
+    },
+    {
+      "id": 38,
+      "sample_id": 38,
+      "actual_price": 6165813.0,
+      "actual_price_lakhs": 61.66,
+      "random_forest": 6386514.36,
+      "random_forest_lakhs": 63.87,
+      "decision_tree": 6012652.4,
+      "decision_tree_lakhs": 60.13,
+      "linear_regression": 7134878.46,
+      "linear_regression_lakhs": 71.35,
+      "knn": 7406145.63,
+      "knn_lakhs": 74.06
+    },
+    {
+      "id": 39,
+      "sample_id": 39,
+      "actual_price": 6259520.0,
+      "actual_price_lakhs": 62.6,
+      "random_forest": 6889306.22,
+      "random_forest_lakhs": 68.89,
+      "decision_tree": 7019162.75,
+      "decision_tree_lakhs": 70.19,
+      "linear_regression": 6239404.01,
+      "linear_regression_lakhs": 62.39,
+      "knn": 7517761.68,
+      "knn_lakhs": 75.18
+    },
+    {
+      "id": 40,
+      "sample_id": 40,
+      "actual_price": 6365973.0,
+      "actual_price_lakhs": 63.66,
+      "random_forest": 6523717.0,
+      "random_forest_lakhs": 65.24,
+      "decision_tree": 5823502.77,
+      "decision_tree_lakhs": 58.24,
+      "linear_regression": 9459890.16,
+      "linear_regression_lakhs": 94.6,
+      "knn": 5718425.67,
+      "knn_lakhs": 57.18
+    },
+    {
+      "id": 41,
+      "sample_id": 41,
+      "actual_price": 6452172.0,
+      "actual_price_lakhs": 64.52,
+      "random_forest": 6862125.54,
+      "random_forest_lakhs": 68.62,
+      "decision_tree": 6551724.78,
+      "decision_tree_lakhs": 65.52,
+      "linear_regression": 7782950.99,
+      "linear_regression_lakhs": 77.83,
+      "knn": 6702392.75,
+      "knn_lakhs": 67.02
+    },
+    {
+      "id": 42,
+      "sample_id": 42,
+      "actual_price": 6514932.0,
+      "actual_price_lakhs": 65.15,
+      "random_forest": 7043898.35,
+      "random_forest_lakhs": 70.44,
+      "decision_tree": 6546554.73,
+      "decision_tree_lakhs": 65.47,
+      "linear_regression": 7680761.0,
+      "linear_regression_lakhs": 76.81,
+      "knn": 7261542.04,
+      "knn_lakhs": 72.62
+    },
+    {
+      "id": 43,
+      "sample_id": 43,
+      "actual_price": 6592895.0,
+      "actual_price_lakhs": 65.93,
+      "random_forest": 5972550.13,
+      "random_forest_lakhs": 59.73,
+      "decision_tree": 6158396.09,
+      "decision_tree_lakhs": 61.58,
+      "linear_regression": 6380702.99,
+      "linear_regression_lakhs": 63.81,
+      "knn": 6720562.93,
+      "knn_lakhs": 67.21
+    },
+    {
+      "id": 44,
+      "sample_id": 44,
+      "actual_price": 6687586.0,
+      "actual_price_lakhs": 66.88,
+      "random_forest": 7879270.55,
+      "random_forest_lakhs": 78.79,
+      "decision_tree": 8107129.51,
+      "decision_tree_lakhs": 81.07,
+      "linear_regression": 7102131.9,
+      "linear_regression_lakhs": 71.02,
+      "knn": 6678782.09,
+      "knn_lakhs": 66.79
+    },
+    {
+      "id": 45,
+      "sample_id": 45,
+      "actual_price": 6768481.0,
+      "actual_price_lakhs": 67.68,
+      "random_forest": 6939702.09,
+      "random_forest_lakhs": 69.4,
+      "decision_tree": 7392755.35,
+      "decision_tree_lakhs": 73.93,
+      "linear_regression": 6618146.4,
+      "linear_regression_lakhs": 66.18,
+      "knn": 8117564.94,
+      "knn_lakhs": 81.18
+    },
+    {
+      "id": 46,
+      "sample_id": 46,
+      "actual_price": 6826940.0,
+      "actual_price_lakhs": 68.27,
+      "random_forest": 5893650.42,
+      "random_forest_lakhs": 58.94,
+      "decision_tree": 6059049.19,
+      "decision_tree_lakhs": 60.59,
+      "linear_regression": 6550261.15,
+      "linear_regression_lakhs": 65.5,
+      "knn": 6232998.61,
+      "knn_lakhs": 62.33
+    },
+    {
+      "id": 47,
+      "sample_id": 47,
+      "actual_price": 6943760.0,
+      "actual_price_lakhs": 69.44,
+      "random_forest": 7080318.74,
+      "random_forest_lakhs": 70.8,
+      "decision_tree": 7462054.25,
+      "decision_tree_lakhs": 74.62,
+      "linear_regression": 7849940.32,
+      "linear_regression_lakhs": 78.5,
+      "knn": 8517970.7,
+      "knn_lakhs": 85.18
+    },
+    {
+      "id": 48,
+      "sample_id": 48,
+      "actual_price": 7042961.0,
+      "actual_price_lakhs": 70.43,
+      "random_forest": 7864546.25,
+      "random_forest_lakhs": 78.65,
+      "decision_tree": 7889836.38,
+      "decision_tree_lakhs": 78.9,
+      "linear_regression": 10048869.75,
+      "linear_regression_lakhs": 100.49,
+      "knn": 7054772.25,
+      "knn_lakhs": 70.55
+    },
+    {
+      "id": 49,
+      "sample_id": 49,
+      "actual_price": 7146145.0,
+      "actual_price_lakhs": 71.46,
+      "random_forest": 7903921.2,
+      "random_forest_lakhs": 79.04,
+      "decision_tree": 7918779.23,
+      "decision_tree_lakhs": 79.19,
+      "linear_regression": 6982911.68,
+      "linear_regression_lakhs": 69.83,
+      "knn": 9002896.06,
+      "knn_lakhs": 90.03
+    },
+    {
+      "id": 50,
+      "sample_id": 50,
+      "actual_price": 7241033.0,
+      "actual_price_lakhs": 72.41,
+      "random_forest": 7767688.08,
+      "random_forest_lakhs": 77.68,
+      "decision_tree": 7697285.77,
+      "decision_tree_lakhs": 76.97,
+      "linear_regression": 7184749.2,
+      "linear_regression_lakhs": 71.85,
+      "knn": 7573005.21,
+      "knn_lakhs": 75.73
+    },
+    {
+      "id": 51,
+      "sample_id": 51,
+      "actual_price": 7360386.0,
+      "actual_price_lakhs": 73.6,
+      "random_forest": 7773060.56,
+      "random_forest_lakhs": 77.73,
+      "decision_tree": 8368929.45,
+      "decision_tree_lakhs": 83.69,
+      "linear_regression": 7879846.83,
+      "linear_regression_lakhs": 78.8,
+      "knn": 8423249.37,
+      "knn_lakhs": 84.23
+    },
+    {
+      "id": 52,
+      "sample_id": 52,
+      "actual_price": 7513382.0,
+      "actual_price_lakhs": 75.13,
+      "random_forest": 7693533.56,
+      "random_forest_lakhs": 76.94,
+      "decision_tree": 7908108.0,
+      "decision_tree_lakhs": 79.08,
+      "linear_regression": 7694340.83,
+      "linear_regression_lakhs": 76.94,
+      "knn": 6525620.94,
+      "knn_lakhs": 65.26
+    },
+    {
+      "id": 53,
+      "sample_id": 53,
+      "actual_price": 7594023.0,
+      "actual_price_lakhs": 75.94,
+      "random_forest": 7889424.4,
+      "random_forest_lakhs": 78.89,
+      "decision_tree": 7645754.24,
+      "decision_tree_lakhs": 76.46,
+      "linear_regression": 7832706.81,
+      "linear_regression_lakhs": 78.33,
+      "knn": 7602704.81,
+      "knn_lakhs": 76.03
+    },
+    {
+      "id": 54,
+      "sample_id": 54,
+      "actual_price": 7704074.0,
+      "actual_price_lakhs": 77.04,
+      "random_forest": 8171550.86,
+      "random_forest_lakhs": 81.72,
+      "decision_tree": 8131922.56,
+      "decision_tree_lakhs": 81.32,
+      "linear_regression": 7757639.5,
+      "linear_regression_lakhs": 77.58,
+      "knn": 9436705.23,
+      "knn_lakhs": 94.37
+    },
+    {
+      "id": 55,
+      "sample_id": 55,
+      "actual_price": 7802357.0,
+      "actual_price_lakhs": 78.02,
+      "random_forest": 8214953.36,
+      "random_forest_lakhs": 82.15,
+      "decision_tree": 8150042.73,
+      "decision_tree_lakhs": 81.5,
+      "linear_regression": 8602866.57,
+      "linear_regression_lakhs": 86.03,
+      "knn": 10397127.07,
+      "knn_lakhs": 103.97
+    },
+    {
+      "id": 56,
+      "sample_id": 56,
+      "actual_price": 7884241.0,
+      "actual_price_lakhs": 78.84,
+      "random_forest": 7694917.71,
+      "random_forest_lakhs": 76.95,
+      "decision_tree": 6782053.77,
+      "decision_tree_lakhs": 67.82,
+      "linear_regression": 10005433.74,
+      "linear_regression_lakhs": 100.05,
+      "knn": 4489877.52,
+      "knn_lakhs": 44.9
+    },
+    {
+      "id": 57,
+      "sample_id": 57,
+      "actual_price": 7978462.0,
+      "actual_price_lakhs": 79.78,
+      "random_forest": 8022349.08,
+      "random_forest_lakhs": 80.22,
+      "decision_tree": 7918779.23,
+      "decision_tree_lakhs": 79.19,
+      "linear_regression": 8251561.17,
+      "linear_regression_lakhs": 82.52,
+      "knn": 11148404.52,
+      "knn_lakhs": 111.48
+    },
+    {
+      "id": 58,
+      "sample_id": 58,
+      "actual_price": 8076971.0,
+      "actual_price_lakhs": 80.77,
+      "random_forest": 7848671.51,
+      "random_forest_lakhs": 78.49,
+      "decision_tree": 8864327.0,
+      "decision_tree_lakhs": 88.64,
+      "linear_regression": 8105074.0,
+      "linear_regression_lakhs": 81.05,
+      "knn": 7757968.27,
+      "knn_lakhs": 77.58
+    },
+    {
+      "id": 59,
+      "sample_id": 59,
+      "actual_price": 8200255.0,
+      "actual_price_lakhs": 82.0,
+      "random_forest": 7138654.07,
+      "random_forest_lakhs": 71.39,
+      "decision_tree": 7020207.55,
+      "decision_tree_lakhs": 70.2,
+      "linear_regression": 8809046.62,
+      "linear_regression_lakhs": 88.09,
+      "knn": 8773497.53,
+      "knn_lakhs": 87.73
+    },
+    {
+      "id": 60,
+      "sample_id": 60,
+      "actual_price": 8303457.0,
+      "actual_price_lakhs": 83.03,
+      "random_forest": 7964328.84,
+      "random_forest_lakhs": 79.64,
+      "decision_tree": 7697285.77,
+      "decision_tree_lakhs": 76.97,
+      "linear_regression": 7791983.46,
+      "linear_regression_lakhs": 77.92,
+      "knn": 7772392.03,
+      "knn_lakhs": 77.72
+    },
+    {
+      "id": 61,
+      "sample_id": 61,
+      "actual_price": 8393988.0,
+      "actual_price_lakhs": 83.94,
+      "random_forest": 8237311.1,
+      "random_forest_lakhs": 82.37,
+      "decision_tree": 9063857.24,
+      "decision_tree_lakhs": 90.64,
+      "linear_regression": 8440951.25,
+      "linear_regression_lakhs": 84.41,
+      "knn": 7116601.02,
+      "knn_lakhs": 71.17
+    },
+    {
+      "id": 62,
+      "sample_id": 62,
+      "actual_price": 8528429.0,
+      "actual_price_lakhs": 85.28,
+      "random_forest": 7691072.66,
+      "random_forest_lakhs": 76.91,
+      "decision_tree": 7481104.08,
+      "decision_tree_lakhs": 74.81,
+      "linear_regression": 7884363.23,
+      "linear_regression_lakhs": 78.84,
+      "knn": 8089702.28,
+      "knn_lakhs": 80.9
+    },
+    {
+      "id": 63,
+      "sample_id": 63,
+      "actual_price": 8699230.0,
+      "actual_price_lakhs": 86.99,
+      "random_forest": 10219720.37,
+      "random_forest_lakhs": 102.2,
+      "decision_tree": 9982884.75,
+      "decision_tree_lakhs": 99.83,
+      "linear_regression": 10373171.62,
+      "linear_regression_lakhs": 103.73,
+      "knn": 11835760.15,
+      "knn_lakhs": 118.36
+    },
+    {
+      "id": 64,
+      "sample_id": 64,
+      "actual_price": 8827532.0,
+      "actual_price_lakhs": 88.28,
+      "random_forest": 9322961.52,
+      "random_forest_lakhs": 93.23,
+      "decision_tree": 9048122.25,
+      "decision_tree_lakhs": 90.48,
+      "linear_regression": 11204267.4,
+      "linear_regression_lakhs": 112.04,
+      "knn": 9359370.56,
+      "knn_lakhs": 93.59
+    },
+    {
+      "id": 65,
+      "sample_id": 65,
+      "actual_price": 8936323.0,
+      "actual_price_lakhs": 89.36,
+      "random_forest": 9471426.09,
+      "random_forest_lakhs": 94.71,
+      "decision_tree": 9574812.79,
+      "decision_tree_lakhs": 95.75,
+      "linear_regression": 9324828.33,
+      "linear_regression_lakhs": 93.25,
+      "knn": 8876697.43,
+      "knn_lakhs": 88.77
+    },
+    {
+      "id": 66,
+      "sample_id": 66,
+      "actual_price": 9038903.0,
+      "actual_price_lakhs": 90.39,
+      "random_forest": 9979523.8,
+      "random_forest_lakhs": 99.8,
+      "decision_tree": 9712034.75,
+      "decision_tree_lakhs": 97.12,
+      "linear_regression": 10649301.88,
+      "linear_regression_lakhs": 106.49,
+      "knn": 9481275.45,
+      "knn_lakhs": 94.81
+    },
+    {
+      "id": 67,
+      "sample_id": 67,
+      "actual_price": 9127078.0,
+      "actual_price_lakhs": 91.27,
+      "random_forest": 9126576.17,
+      "random_forest_lakhs": 91.27,
+      "decision_tree": 9236959.18,
+      "decision_tree_lakhs": 92.37,
+      "linear_regression": 11439211.0,
+      "linear_regression_lakhs": 114.39,
+      "knn": 7279891.38,
+      "knn_lakhs": 72.8
+    },
+    {
+      "id": 68,
+      "sample_id": 68,
+      "actual_price": 9245993.0,
+      "actual_price_lakhs": 92.46,
+      "random_forest": 8998280.32,
+      "random_forest_lakhs": 89.98,
+      "decision_tree": 8985875.2,
+      "decision_tree_lakhs": 89.86,
+      "linear_regression": 9713361.82,
+      "linear_regression_lakhs": 97.13,
+      "knn": 8827602.36,
+      "knn_lakhs": 88.28
+    },
+    {
+      "id": 69,
+      "sample_id": 69,
+      "actual_price": 9336652.0,
+      "actual_price_lakhs": 93.37,
+      "random_forest": 8885690.31,
+      "random_forest_lakhs": 88.86,
+      "decision_tree": 9255538.44,
+      "decision_tree_lakhs": 92.56,
+      "linear_regression": 10900207.43,
+      "linear_regression_lakhs": 109.0,
+      "knn": 8801986.28,
+      "knn_lakhs": 88.02
+    },
+    {
+      "id": 70,
+      "sample_id": 70,
+      "actual_price": 9445301.0,
+      "actual_price_lakhs": 94.45,
+      "random_forest": 8969365.14,
+      "random_forest_lakhs": 89.69,
+      "decision_tree": 9038885.73,
+      "decision_tree_lakhs": 90.39,
+      "linear_regression": 11480806.21,
+      "linear_regression_lakhs": 114.81,
+      "knn": 8086383.77,
+      "knn_lakhs": 80.86
+    },
+    {
+      "id": 71,
+      "sample_id": 71,
+      "actual_price": 9601758.0,
+      "actual_price_lakhs": 96.02,
+      "random_forest": 8071905.56,
+      "random_forest_lakhs": 80.72,
+      "decision_tree": 8222915.0,
+      "decision_tree_lakhs": 82.23,
+      "linear_regression": 9301112.05,
+      "linear_regression_lakhs": 93.01,
+      "knn": 10786160.63,
+      "knn_lakhs": 107.86
+    },
+    {
+      "id": 72,
+      "sample_id": 72,
+      "actual_price": 9710461.0,
+      "actual_price_lakhs": 97.1,
+      "random_forest": 9794421.02,
+      "random_forest_lakhs": 97.94,
+      "decision_tree": 9574812.79,
+      "decision_tree_lakhs": 95.75,
+      "linear_regression": 10361360.22,
+      "linear_regression_lakhs": 103.61,
+      "knn": 9553396.16,
+      "knn_lakhs": 95.53
+    },
+    {
+      "id": 73,
+      "sample_id": 73,
+      "actual_price": 9830862.0,
+      "actual_price_lakhs": 98.31,
+      "random_forest": 9402159.16,
+      "random_forest_lakhs": 94.02,
+      "decision_tree": 8665627.88,
+      "decision_tree_lakhs": 86.66,
+      "linear_regression": 10181420.28,
+      "linear_regression_lakhs": 101.81,
+      "knn": 8633351.59,
+      "knn_lakhs": 86.33
+    },
+    {
+      "id": 74,
+      "sample_id": 74,
+      "actual_price": 9970003.0,
+      "actual_price_lakhs": 99.7,
+      "random_forest": 10321527.38,
+      "random_forest_lakhs": 103.22,
+      "decision_tree": 10762591.6,
+      "decision_tree_lakhs": 107.63,
+      "linear_regression": 12415372.07,
+      "linear_regression_lakhs": 124.15,
+      "knn": 10840994.66,
+      "knn_lakhs": 108.41
+    },
+    {
+      "id": 75,
+      "sample_id": 75,
+      "actual_price": 10139938.0,
+      "actual_price_lakhs": 101.4,
+      "random_forest": 9715224.4,
+      "random_forest_lakhs": 97.15,
+      "decision_tree": 9942484.45,
+      "decision_tree_lakhs": 99.42,
+      "linear_regression": 10474236.4,
+      "linear_regression_lakhs": 104.74,
+      "knn": 8935224.48,
+      "knn_lakhs": 89.35
+    },
+    {
+      "id": 76,
+      "sample_id": 76,
+      "actual_price": 10295906.0,
+      "actual_price_lakhs": 102.96,
+      "random_forest": 11106164.53,
+      "random_forest_lakhs": 111.06,
+      "decision_tree": 11917920.92,
+      "decision_tree_lakhs": 119.18,
+      "linear_regression": 12612464.46,
+      "linear_regression_lakhs": 126.12,
+      "knn": 11059954.38,
+      "knn_lakhs": 110.6
+    },
+    {
+      "id": 77,
+      "sample_id": 77,
+      "actual_price": 10405598.0,
+      "actual_price_lakhs": 104.06,
+      "random_forest": 10977771.0,
+      "random_forest_lakhs": 109.78,
+      "decision_tree": 10317515.12,
+      "decision_tree_lakhs": 103.18,
+      "linear_regression": 13245367.68,
+      "linear_regression_lakhs": 132.45,
+      "knn": 11119908.61,
+      "knn_lakhs": 111.2
+    },
+    {
+      "id": 78,
+      "sample_id": 78,
+      "actual_price": 10540500.0,
+      "actual_price_lakhs": 105.41,
+      "random_forest": 9781455.49,
+      "random_forest_lakhs": 97.81,
+      "decision_tree": 9685099.58,
+      "decision_tree_lakhs": 96.85,
+      "linear_regression": 10009031.38,
+      "linear_regression_lakhs": 100.09,
+      "knn": 8909838.73,
+      "knn_lakhs": 89.1
+    },
+    {
+      "id": 79,
+      "sample_id": 79,
+      "actual_price": 10707448.0,
+      "actual_price_lakhs": 107.07,
+      "random_forest": 10349343.92,
+      "random_forest_lakhs": 103.49,
+      "decision_tree": 10092420.5,
+      "decision_tree_lakhs": 100.92,
+      "linear_regression": 12470714.32,
+      "linear_regression_lakhs": 124.71,
+      "knn": 7596286.17,
+      "knn_lakhs": 75.96
+    },
+    {
+      "id": 80,
+      "sample_id": 80,
+      "actual_price": 10818425.0,
+      "actual_price_lakhs": 108.18,
+      "random_forest": 11789912.24,
+      "random_forest_lakhs": 117.9,
+      "decision_tree": 12632186.78,
+      "decision_tree_lakhs": 126.32,
+      "linear_regression": 14660338.25,
+      "linear_regression_lakhs": 146.6,
+      "knn": 9699398.87,
+      "knn_lakhs": 96.99
+    },
+    {
+      "id": 81,
+      "sample_id": 81,
+      "actual_price": 10985029.0,
+      "actual_price_lakhs": 109.85,
+      "random_forest": 10727596.21,
+      "random_forest_lakhs": 107.28,
+      "decision_tree": 11585511.38,
+      "decision_tree_lakhs": 115.86,
+      "linear_regression": 12078861.17,
+      "linear_regression_lakhs": 120.79,
+      "knn": 10567215.62,
+      "knn_lakhs": 105.67
+    },
+    {
+      "id": 82,
+      "sample_id": 82,
+      "actual_price": 11131083.0,
+      "actual_price_lakhs": 111.31,
+      "random_forest": 11361588.48,
+      "random_forest_lakhs": 113.62,
+      "decision_tree": 11781871.62,
+      "decision_tree_lakhs": 117.82,
+      "linear_regression": 12889582.18,
+      "linear_regression_lakhs": 128.9,
+      "knn": 9808046.63,
+      "knn_lakhs": 98.08
+    },
+    {
+      "id": 83,
+      "sample_id": 83,
+      "actual_price": 11247658.0,
+      "actual_price_lakhs": 112.48,
+      "random_forest": 13332432.92,
+      "random_forest_lakhs": 133.32,
+      "decision_tree": 13394017.78,
+      "decision_tree_lakhs": 133.94,
+      "linear_regression": 12816318.14,
+      "linear_regression_lakhs": 128.16,
+      "knn": 15328875.76,
+      "knn_lakhs": 153.29
+    },
+    {
+      "id": 84,
+      "sample_id": 84,
+      "actual_price": 11457734.0,
+      "actual_price_lakhs": 114.58,
+      "random_forest": 11406915.8,
+      "random_forest_lakhs": 114.07,
+      "decision_tree": 11363831.25,
+      "decision_tree_lakhs": 113.64,
+      "linear_regression": 15785840.8,
+      "linear_regression_lakhs": 157.86,
+      "knn": 10946330.75,
+      "knn_lakhs": 109.46
+    },
+    {
+      "id": 85,
+      "sample_id": 85,
+      "actual_price": 11625408.0,
+      "actual_price_lakhs": 116.25,
+      "random_forest": 10211211.59,
+      "random_forest_lakhs": 102.11,
+      "decision_tree": 9685099.58,
+      "decision_tree_lakhs": 96.85,
+      "linear_regression": 10630275.32,
+      "linear_regression_lakhs": 106.3,
+      "knn": 8859034.11,
+      "knn_lakhs": 88.59
+    },
+    {
+      "id": 86,
+      "sample_id": 86,
+      "actual_price": 11820005.0,
+      "actual_price_lakhs": 118.2,
+      "random_forest": 11349890.23,
+      "random_forest_lakhs": 113.5,
+      "decision_tree": 11280214.5,
+      "decision_tree_lakhs": 112.8,
+      "linear_regression": 13027982.82,
+      "linear_regression_lakhs": 130.28,
+      "knn": 10864306.34,
+      "knn_lakhs": 108.64
+    },
+    {
+      "id": 87,
+      "sample_id": 87,
+      "actual_price": 12044465.0,
+      "actual_price_lakhs": 120.44,
+      "random_forest": 12114852.63,
+      "random_forest_lakhs": 121.15,
+      "decision_tree": 12188422.1,
+      "decision_tree_lakhs": 121.88,
+      "linear_regression": 13578809.93,
+      "linear_regression_lakhs": 135.79,
+      "knn": 7960593.58,
+      "knn_lakhs": 79.61
+    },
+    {
+      "id": 88,
+      "sample_id": 88,
+      "actual_price": 12234418.0,
+      "actual_price_lakhs": 122.34,
+      "random_forest": 12356250.2,
+      "random_forest_lakhs": 123.56,
+      "decision_tree": 11280214.5,
+      "decision_tree_lakhs": 112.8,
+      "linear_regression": 13973445.64,
+      "linear_regression_lakhs": 139.73,
+      "knn": 11177811.88,
+      "knn_lakhs": 111.78
+    },
+    {
+      "id": 89,
+      "sample_id": 89,
+      "actual_price": 12366446.0,
+      "actual_price_lakhs": 123.66,
+      "random_forest": 12323644.97,
+      "random_forest_lakhs": 123.24,
+      "decision_tree": 12188422.1,
+      "decision_tree_lakhs": 121.88,
+      "linear_regression": 14572295.62,
+      "linear_regression_lakhs": 145.72,
+      "knn": 11731847.71,
+      "knn_lakhs": 117.32
+    },
+    {
+      "id": 90,
+      "sample_id": 90,
+      "actual_price": 12560369.0,
+      "actual_price_lakhs": 125.6,
+      "random_forest": 11082123.28,
+      "random_forest_lakhs": 110.82,
+      "decision_tree": 10954547.64,
+      "decision_tree_lakhs": 109.55,
+      "linear_regression": 13100000.17,
+      "linear_regression_lakhs": 131.0,
+      "knn": 11191572.77,
+      "knn_lakhs": 111.92
+    },
+    {
+      "id": 91,
+      "sample_id": 91,
+      "actual_price": 12759536.0,
+      "actual_price_lakhs": 127.6,
+      "random_forest": 14083387.32,
+      "random_forest_lakhs": 140.83,
+      "decision_tree": 14752009.42,
+      "decision_tree_lakhs": 147.52,
+      "linear_regression": 13588963.2,
+      "linear_regression_lakhs": 135.89,
+      "knn": 14399409.24,
+      "knn_lakhs": 143.99
+    },
+    {
+      "id": 92,
+      "sample_id": 92,
+      "actual_price": 12991389.0,
+      "actual_price_lakhs": 129.91,
+      "random_forest": 12582500.84,
+      "random_forest_lakhs": 125.83,
+      "decision_tree": 12290180.89,
+      "decision_tree_lakhs": 122.9,
+      "linear_regression": 13185192.26,
+      "linear_regression_lakhs": 131.85,
+      "knn": 13206579.07,
+      "knn_lakhs": 132.07
+    },
+    {
+      "id": 93,
+      "sample_id": 93,
+      "actual_price": 13214662.0,
+      "actual_price_lakhs": 132.15,
+      "random_forest": 12816975.98,
+      "random_forest_lakhs": 128.17,
+      "decision_tree": 12931853.54,
+      "decision_tree_lakhs": 129.32,
+      "linear_regression": 13725886.36,
+      "linear_regression_lakhs": 137.26,
+      "knn": 15166935.44,
+      "knn_lakhs": 151.67
+    },
+    {
+      "id": 94,
+      "sample_id": 94,
+      "actual_price": 13355287.0,
+      "actual_price_lakhs": 133.55,
+      "random_forest": 12638933.28,
+      "random_forest_lakhs": 126.39,
+      "decision_tree": 12617725.7,
+      "decision_tree_lakhs": 126.18,
+      "linear_regression": 14355245.84,
+      "linear_regression_lakhs": 143.55,
+      "knn": 10139845.77,
+      "knn_lakhs": 101.4
+    },
+    {
+      "id": 95,
+      "sample_id": 95,
+      "actual_price": 13761157.0,
+      "actual_price_lakhs": 137.61,
+      "random_forest": 14960945.61,
+      "random_forest_lakhs": 149.61,
+      "decision_tree": 15584254.0,
+      "decision_tree_lakhs": 155.84,
+      "linear_regression": 15353612.1,
+      "linear_regression_lakhs": 153.54,
+      "knn": 10932843.87,
+      "knn_lakhs": 109.33
+    },
+    {
+      "id": 96,
+      "sample_id": 96,
+      "actual_price": 13933280.0,
+      "actual_price_lakhs": 139.33,
+      "random_forest": 14103666.09,
+      "random_forest_lakhs": 141.04,
+      "decision_tree": 14692887.33,
+      "decision_tree_lakhs": 146.93,
+      "linear_regression": 14035942.16,
+      "linear_regression_lakhs": 140.36,
+      "knn": 13296274.56,
+      "knn_lakhs": 132.96
+    },
+    {
+      "id": 97,
+      "sample_id": 97,
+      "actual_price": 14272988.0,
+      "actual_price_lakhs": 142.73,
+      "random_forest": 15190185.99,
+      "random_forest_lakhs": 151.9,
+      "decision_tree": 15490236.33,
+      "decision_tree_lakhs": 154.9,
+      "linear_regression": 16243271.66,
+      "linear_regression_lakhs": 162.43,
+      "knn": 14623122.49,
+      "knn_lakhs": 146.23
+    },
+    {
+      "id": 98,
+      "sample_id": 98,
+      "actual_price": 14482597.0,
+      "actual_price_lakhs": 144.83,
+      "random_forest": 13109181.34,
+      "random_forest_lakhs": 131.09,
+      "decision_tree": 13072569.69,
+      "decision_tree_lakhs": 130.73,
+      "linear_regression": 15600840.67,
+      "linear_regression_lakhs": 156.01,
+      "knn": 15071739.89,
+      "knn_lakhs": 150.72
+    },
+    {
+      "id": 99,
+      "sample_id": 99,
+      "actual_price": 14693543.0,
+      "actual_price_lakhs": 146.94,
+      "random_forest": 14019306.57,
+      "random_forest_lakhs": 140.19,
+      "decision_tree": 14281156.92,
+      "decision_tree_lakhs": 142.81,
+      "linear_regression": 14684313.52,
+      "linear_regression_lakhs": 146.84,
+      "knn": 16168124.88,
+      "knn_lakhs": 161.68
+    },
+    {
+      "id": 100,
+      "sample_id": 100,
+      "actual_price": 14904245.0,
+      "actual_price_lakhs": 149.04,
+      "random_forest": 15338945.7,
+      "random_forest_lakhs": 153.39,
+      "decision_tree": 14608554.0,
+      "decision_tree_lakhs": 146.09,
+      "linear_regression": 16767755.19,
+      "linear_regression_lakhs": 167.68,
+      "knn": 16757828.22,
+      "knn_lakhs": 167.58
+    },
+    {
+      "id": 101,
+      "sample_id": 101,
+      "actual_price": 15157380.0,
+      "actual_price_lakhs": 151.57,
+      "random_forest": 15526277.19,
+      "random_forest_lakhs": 155.26,
+      "decision_tree": 14888288.2,
+      "decision_tree_lakhs": 148.88,
+      "linear_regression": 16236064.85,
+      "linear_regression_lakhs": 162.36,
+      "knn": 14222897.76,
+      "knn_lakhs": 142.23
+    },
+    {
+      "id": 102,
+      "sample_id": 102,
+      "actual_price": 15404353.0,
+      "actual_price_lakhs": 154.04,
+      "random_forest": 14928716.02,
+      "random_forest_lakhs": 149.29,
+      "decision_tree": 14373143.78,
+      "decision_tree_lakhs": 143.73,
+      "linear_regression": 14981417.08,
+      "linear_regression_lakhs": 149.81,
+      "knn": 16634659.63,
+      "knn_lakhs": 166.35
+    },
+    {
+      "id": 103,
+      "sample_id": 103,
+      "actual_price": 15727485.0,
+      "actual_price_lakhs": 157.27,
+      "random_forest": 14701586.72,
+      "random_forest_lakhs": 147.02,
+      "decision_tree": 16156543.45,
+      "decision_tree_lakhs": 161.57,
+      "linear_regression": 16252479.04,
+      "linear_regression_lakhs": 162.52,
+      "knn": 13484971.61,
+      "knn_lakhs": 134.85
+    },
+    {
+      "id": 104,
+      "sample_id": 104,
+      "actual_price": 16114476.0,
+      "actual_price_lakhs": 161.14,
+      "random_forest": 14910411.23,
+      "random_forest_lakhs": 149.1,
+      "decision_tree": 14494497.67,
+      "decision_tree_lakhs": 144.94,
+      "linear_regression": 15521343.61,
+      "linear_regression_lakhs": 155.21,
+      "knn": 17531473.76,
+      "knn_lakhs": 175.31
+    },
+    {
+      "id": 105,
+      "sample_id": 105,
+      "actual_price": 16718401.0,
+      "actual_price_lakhs": 167.18,
+      "random_forest": 18682949.1,
+      "random_forest_lakhs": 186.83,
+      "decision_tree": 18682310.38,
+      "decision_tree_lakhs": 186.82,
+      "linear_regression": 18852974.79,
+      "linear_regression_lakhs": 188.53,
+      "knn": 16671385.98,
+      "knn_lakhs": 166.71
+    },
+    {
+      "id": 106,
+      "sample_id": 106,
+      "actual_price": 17172542.0,
+      "actual_price_lakhs": 171.73,
+      "random_forest": 18804249.41,
+      "random_forest_lakhs": 188.04,
+      "decision_tree": 18854323.0,
+      "decision_tree_lakhs": 188.54,
+      "linear_regression": 19412587.47,
+      "linear_regression_lakhs": 194.13,
+      "knn": 17584683.44,
+      "knn_lakhs": 175.85
+    },
+    {
+      "id": 107,
+      "sample_id": 107,
+      "actual_price": 17582906.0,
+      "actual_price_lakhs": 175.83,
+      "random_forest": 17346578.77,
+      "random_forest_lakhs": 173.47,
+      "decision_tree": 17344053.44,
+      "decision_tree_lakhs": 173.44,
+      "linear_regression": 17877131.19,
+      "linear_regression_lakhs": 178.77,
+      "knn": 20627864.74,
+      "knn_lakhs": 206.28
+    },
+    {
+      "id": 108,
+      "sample_id": 108,
+      "actual_price": 18303912.0,
+      "actual_price_lakhs": 183.04,
+      "random_forest": 16757209.53,
+      "random_forest_lakhs": 167.57,
+      "decision_tree": 16278713.25,
+      "decision_tree_lakhs": 162.79,
+      "linear_regression": 17940511.0,
+      "linear_regression_lakhs": 179.41,
+      "knn": 14597971.37,
+      "knn_lakhs": 145.98
+    },
+    {
+      "id": 109,
+      "sample_id": 109,
+      "actual_price": 18703431.0,
+      "actual_price_lakhs": 187.03,
+      "random_forest": 17181679.91,
+      "random_forest_lakhs": 171.82,
+      "decision_tree": 16865700.31,
+      "decision_tree_lakhs": 168.66,
+      "linear_regression": 17661446.65,
+      "linear_regression_lakhs": 176.61,
+      "knn": 16173189.71,
+      "knn_lakhs": 161.73
+    },
+    {
+      "id": 110,
+      "sample_id": 110,
+      "actual_price": 19389299.0,
+      "actual_price_lakhs": 193.89,
+      "random_forest": 18384761.47,
+      "random_forest_lakhs": 183.85,
+      "decision_tree": 18456489.85,
+      "decision_tree_lakhs": 184.56,
+      "linear_regression": 18325911.54,
+      "linear_regression_lakhs": 183.26,
+      "knn": 16256199.09,
+      "knn_lakhs": 162.56
+    },
+    {
+      "id": 111,
+      "sample_id": 111,
+      "actual_price": 20044667.0,
+      "actual_price_lakhs": 200.45,
+      "random_forest": 19216490.47,
+      "random_forest_lakhs": 192.16,
+      "decision_tree": 18854323.0,
+      "decision_tree_lakhs": 188.54,
+      "linear_regression": 19573862.4,
+      "linear_regression_lakhs": 195.74,
+      "knn": 19565541.09,
+      "knn_lakhs": 195.66
+    },
+    {
+      "id": 112,
+      "sample_id": 112,
+      "actual_price": 20934218.0,
+      "actual_price_lakhs": 209.34,
+      "random_forest": 18965908.13,
+      "random_forest_lakhs": 189.66,
+      "decision_tree": 18771645.0,
+      "decision_tree_lakhs": 187.72,
+      "linear_regression": 18759617.75,
+      "linear_regression_lakhs": 187.6,
+      "knn": 17823165.5,
+      "knn_lakhs": 178.23
+    },
+    {
+      "id": 113,
+      "sample_id": 113,
+      "actual_price": 22281565.0,
+      "actual_price_lakhs": 222.82,
+      "random_forest": 21896624.04,
+      "random_forest_lakhs": 218.97,
+      "decision_tree": 21473573.44,
+      "decision_tree_lakhs": 214.74,
+      "linear_regression": 22785865.44,
+      "linear_regression_lakhs": 227.86,
+      "knn": 26025977.06,
+      "knn_lakhs": 260.26
+    },
+    {
+      "id": 114,
+      "sample_id": 114,
+      "actual_price": 23179210.0,
+      "actual_price_lakhs": 231.79,
+      "random_forest": 24206843.11,
+      "random_forest_lakhs": 242.07,
+      "decision_tree": 24360320.3,
+      "decision_tree_lakhs": 243.6,
+      "linear_regression": 21792695.08,
+      "linear_regression_lakhs": 217.93,
+      "knn": 25022496.96,
+      "knn_lakhs": 250.22
+    },
+    {
+      "id": 115,
+      "sample_id": 115,
+      "actual_price": 24580598.0,
+      "actual_price_lakhs": 245.81,
+      "random_forest": 26844165.82,
+      "random_forest_lakhs": 268.44,
+      "decision_tree": 26498077.08,
+      "decision_tree_lakhs": 264.98,
+      "linear_regression": 22734396.49,
+      "linear_regression_lakhs": 227.34,
+      "knn": 19133964.8,
+      "knn_lakhs": 191.34
+    },
+    {
+      "id": 116,
+      "sample_id": 116,
+      "actual_price": 25753679.0,
+      "actual_price_lakhs": 257.54,
+      "random_forest": 26682887.01,
+      "random_forest_lakhs": 266.83,
+      "decision_tree": 25140588.78,
+      "decision_tree_lakhs": 251.41,
+      "linear_regression": 23135067.2,
+      "linear_regression_lakhs": 231.35,
+      "knn": 21132436.61,
+      "knn_lakhs": 211.32
+    },
+    {
+      "id": 117,
+      "sample_id": 117,
+      "actual_price": 27371587.0,
+      "actual_price_lakhs": 273.72,
+      "random_forest": 26760423.15,
+      "random_forest_lakhs": 267.6,
+      "decision_tree": 26498077.08,
+      "decision_tree_lakhs": 264.98,
+      "linear_regression": 22776757.04,
+      "linear_regression_lakhs": 227.77,
+      "knn": 24727865.26,
+      "knn_lakhs": 247.28
+    },
+    {
+      "id": 118,
+      "sample_id": 118,
+      "actual_price": 29584813.0,
+      "actual_price_lakhs": 295.85,
+      "random_forest": 25583530.94,
+      "random_forest_lakhs": 255.84,
+      "decision_tree": 27390365.25,
+      "decision_tree_lakhs": 273.9,
+      "linear_regression": 25787854.36,
+      "linear_regression_lakhs": 257.88,
+      "knn": 32405921.47,
+      "knn_lakhs": 324.06
+    },
+    {
+      "id": 119,
+      "sample_id": 119,
+      "actual_price": 34584789.0,
+      "actual_price_lakhs": 345.85,
+      "random_forest": 34426963.03,
+      "random_forest_lakhs": 344.27,
+      "decision_tree": 33738480.33,
+      "decision_tree_lakhs": 337.38,
+      "linear_regression": 27819926.17,
+      "linear_regression_lakhs": 278.2,
+      "knn": 32044729.85,
+      "knn_lakhs": 320.45
+    },
+    {
+      "id": 120,
+      "sample_id": 120,
+      "actual_price": 50670344.0,
+      "actual_price_lakhs": 506.7,
+      "random_forest": 49212269.2,
+      "random_forest_lakhs": 492.12,
+      "decision_tree": 49797337.0,
+      "decision_tree_lakhs": 497.97,
+      "linear_regression": 35703140.57,
+      "linear_regression_lakhs": 357.03,
+      "knn": 37778267.41,
+      "knn_lakhs": 377.78
+    }
+  ],
+  "tier_labels": [
+    "Budget (< \u20b960L)",
+    "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+    "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+    "Luxury (> \u20b91.75Cr)"
+  ],
+  "best_overall_model": "random_forest"
+}
